@@ -577,9 +577,9 @@
           <div class="macro-chart" id="macroChart" style="display:none">
             <div class="chart-circle" id="macroChartCircle"></div>
             <div class="chart-legend">
-              <div class="legend-item legend-carbs"><span class="legend-color"></span>Carboidrati<strong id="legendCarbsValue">45% • 0g</strong></div>
-              <div class="legend-item legend-protein"><span class="legend-color"></span>Proteine<strong id="legendProteinValue">25% • 0g</strong></div>
-              <div class="legend-item legend-fat"><span class="legend-color"></span>Grassi<strong id="legendFatValue">30% • 0g</strong></div>
+              <div class="legend-item legend-carbs"><span class="legend-color"></span>Carboidrati<strong id="legendCarbsValue">45%</strong></div>
+              <div class="legend-item legend-protein"><span class="legend-color"></span>Proteine<strong id="legendProteinValue">25%</strong></div>
+              <div class="legend-item legend-fat"><span class="legend-color"></span>Grassi<strong id="legendFatValue">30%</strong></div>
             </div>
           </div>
         </div>
@@ -688,38 +688,30 @@
       return Math.round(num);
     }
 
-    function getMacroRatios(goal, activity, calories) {
+    function getMacroRatios(goal, activity) {
       const act = Number(activity);
-      const kcal = Number(calories);
-      const intensity = act <= 1.3 ? 'low' : act <= 1.55 ? 'medium' : 'high';
-
       if (goal === 'deficit') {
-        if (intensity === 'low') return { carbs: 35, protein: 35, fat: 30 };
-        if (intensity === 'medium') return { carbs: 38, protein: 32, fat: 30 };
-        return { carbs: 40, protein: 30, fat: 30 };
+        if (act <= 1.3) return { carbs: 38, protein: 32, fat: 30 };
+        if (act <= 1.55) return { carbs: 40, protein: 30, fat: 30 };
+        return { carbs: 42, protein: 28, fat: 30 };
       }
-
       if (goal === 'surplus') {
-        if (intensity === 'low') return { carbs: 45, protein: 30, fat: 25 };
-        if (intensity === 'medium') return { carbs: 50, protein: 27, fat: 23 };
-        return { carbs: 52, protein: 25, fat: 23 };
+        if (act <= 1.3) return { carbs: 48, protein: 27, fat: 25 };
+        if (act <= 1.55) return { carbs: 50, protein: 25, fat: 25 };
+        return { carbs: 52, protein: 23, fat: 25 };
       }
-
-      if (intensity === 'low') return { carbs: 40, protein: 30, fat: 30 };
-      if (intensity === 'medium') return { carbs: 45, protein: 25, fat: 30 };
-      return { carbs: 48, protein: 24, fat: 28 };
+      if (act <= 1.3) return { carbs: 43, protein: 27, fat: 30 };
+      if (act <= 1.55) return { carbs: 45, protein: 25, fat: 30 };
+      return { carbs: 47, protein: 24, fat: 29 };
     }
 
     function updateMacros(calories, goal, activity) {
-      const { carbs, protein, fat } = getMacroRatios(goal, activity, calories);
-      const carbsGrams = Math.round((calories * carbs) / 100 / 4);
-      const proteinGrams = Math.round((calories * protein) / 100 / 4);
-      const fatGrams = Math.round((calories * fat) / 100 / 9);
+      const { carbs, protein, fat } = getMacroRatios(goal, activity);
       const chartBackground = `conic-gradient(#7fa697 0 ${carbs}%, #c48b62 ${carbs} ${carbs + protein}%, #8e826e ${carbs + protein} 100%)`;
       if (macroChartCircle) macroChartCircle.style.background = chartBackground;
-      if (legendCarbsValue) legendCarbsValue.textContent = `${carbs}% • ${carbsGrams}g`;
-      if (legendProteinValue) legendProteinValue.textContent = `${protein}% • ${proteinGrams}g`;
-      if (legendFatValue) legendFatValue.textContent = `${fat}% • ${fatGrams}g`;
+      if (legendCarbsValue) legendCarbsValue.textContent = carbs + '%';
+      if (legendProteinValue) legendProteinValue.textContent = protein + '%';
+      if (legendFatValue) legendFatValue.textContent = fat + '%';
       if (macroChart) macroChart.style.display = 'grid';
     }
 
