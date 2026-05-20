@@ -65,9 +65,10 @@
     .meta-card { display: grid; gap: 0.4rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem 1.15rem; }
     .meta-card strong { color: var(--accent); }
     .hero-actions { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn { border: none; border-radius: 999px; padding: 0.95rem 1.5rem; cursor: pointer; font-weight: 600; transition: transform 0.2s, background 0.2s; }
+    .btn { border: none; border-radius: 999px; padding: 0.95rem 1.5rem; cursor: pointer; font-weight: 600; transition: transform 0.2s, background 0.2s; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; }
     .btn.primary { background: var(--accent); color: #fff; }
     .btn.secondary { background: var(--surface); border: 1px solid var(--border); color: var(--text); }
+    .btn.warm { background: var(--warm); color: #fff; }
     .btn:hover { transform: translateY(-1px); }
     .pulse { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1rem; border-radius: 999px; background: var(--warm-soft); color: var(--warm); font-size: 0.86rem; }
     .section { padding: 3rem 0; }
@@ -78,30 +79,32 @@
     .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow); }
-    .card-light { background: var(--surface-strong); }
+    .card-light { background: var(--surface-strong); box-shadow: none; }
     .card-title { margin: 0 0 0.75rem; font-size: 1.1rem; color: var(--accent); }
     .card-text { color: var(--text-muted); font-size: 0.95rem; }
+    .card-text + .card-text { margin-top: 0.5rem; }
     .chip { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 999px; padding: 0.55rem 0.95rem; background: var(--accent-soft); color: var(--accent); font-size: 0.82rem; font-weight: 700; }
+    .chip.warm { background: var(--warm-soft); color: var(--warm); }
     .timeline { display: grid; gap: 1rem; }
     .timeline-item { position: relative; padding: 1.35rem 1.4rem 1.4rem 1.4rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
-    .timeline-item::before { content: '' ; position: absolute; left: 1rem; top: 1rem; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
-    .timeline-item h4 { margin-top: 0; margin-bottom: 0.6rem; }
-    .tabs { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
-    .tab-btn { border: 1px solid var(--border); background: var(--surface); padding: 0.85rem 1.1rem; border-radius: 999px; cursor: pointer; color: var(--text); font-weight: 600; }
-    .tab-btn.active { background: var(--accent); color: #ffffff; border-color: transparent; }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
+    .timeline-item::before { content: ''; position: absolute; left: 1rem; top: 1rem; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+    .timeline-item h4 { margin-top: 0; margin-bottom: 0.6rem; padding-left: 1.4rem; }
+    .timeline-item p { color: var(--text-muted); font-size: 0.92rem; padding-left: 1.4rem; }
     .feature-list { display: grid; gap: 1rem; }
     .feature-item { display: flex; gap: 0.85rem; align-items: flex-start; }
-    .feature-bullet { min-width: 10px; min-height: 10px; border-radius: 50%; background: var(--accent); margin-top: 0.5rem; }
+    .feature-bullet { min-width: 10px; min-height: 10px; border-radius: 50%; background: var(--accent); margin-top: 0.5rem; flex-shrink: 0; }
     .label-small { display: inline-flex; gap: 0.35rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
-    .quote { border-left: 4px solid var(--accent); padding: 1.25rem 1.4rem; background: var(--accent-soft); border-radius: 0 0 var(--radius) var(--radius); color: var(--text); }
+    .quote { border-left: 4px solid var(--accent); padding: 1.25rem 1.4rem; background: var(--accent-soft); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--text); }
     .quote strong { color: var(--accent); }
+    .formula-box { background: var(--surface-strong); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; margin: 0.75rem 0; }
+    .formula-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .formula-text { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.05rem; color: var(--text); }
+    .formula-text .v { color: var(--accent); }
     .calc-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; }
     .calc-grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .field { display: flex; flex-direction: column; gap: 0.5rem; }
     label { font-size: 0.82rem; font-weight: 700; color: var(--text-muted); }
-    input, select { width: 100%; border: 1px solid var(--border); border-radius: 12px; padding: 0.85rem 1rem; font-size: 0.95rem; background: #f6f4f1; color: var(--text); }
+    input, select { width: 100%; border: 1px solid var(--border); border-radius: 12px; padding: 0.85rem 1rem; font-size: 0.95rem; background: #f6f4f1; color: var(--text); font-family: 'DM Sans', sans-serif; }
     .result { display: grid; gap: 1rem; margin-top: 1.5rem; }
     .result-box { background: var(--surface-strong); border-radius: var(--radius-sm); padding: 1rem; display: grid; gap: 0.35rem; }
     .result-box span { color: var(--text-muted); font-size: 0.82rem; }
@@ -113,6 +116,20 @@
     .bar-fill.carbs { background: #7fa697; }
     .bar-fill.protein { background: #c48b62; }
     .bar-fill.fat { background: #8e826e; }
+    /* Goals grid */
+    .goals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.25rem; }
+    .goal-card { background: var(--surface-strong); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; text-align: center; }
+    .goal-card .goal-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 0.4rem; }
+    .goal-card .goal-formula { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1rem; color: var(--accent); margin-bottom: 0.3rem; }
+    .goal-card .goal-desc { font-size: 0.82rem; color: var(--text-muted); }
+    /* MIT flow */
+    .flow-steps { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; }
+    .flow-step { display: flex; gap: 1rem; align-items: flex-start; }
+    .flow-num { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 0.82rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; }
+    .flow-step p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+    .flow-step strong { color: var(--text); }
+    /* Divider */
+    hr.divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
     .footer { padding: 2.5rem 0 4rem; text-align: center; color: var(--text-muted); font-size: 0.92rem; }
     .footer a { color: var(--accent); }
     @media (max-width: 980px) {
@@ -120,6 +137,7 @@
       .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .calc-grid { grid-template-columns: 1fr; }
       .section-header { flex-direction: column; align-items: flex-start; }
+      .goals-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -140,49 +158,76 @@
       </div>
     </nav>
 
+    <!-- HERO -->
     <section class="hero" id="top">
       <div class="hero-copy">
         <div class="hero-label">LLAB 2ASA • STEAM</div>
-        <h1 class="hero-title">Il <span>Ciclo della Vita</span> e l’app per le calorie</h1>
-        <p class="hero-text">Un progetto multidisciplinare originale: dalla scienza alla fisica, da Nutri-track all’italiano. Contiene la descrizione del laboratorio con il prof. Petrella, la demo interattiva e la spiegazione tecnica completa.</p>
+        <h1 class="hero-title">Il <span>Ciclo della Vita</span> e l'app per le calorie</h1>
+        <p class="hero-text">Un progetto multidisciplinare originale: dalla scienza alla fisica, da Nutri-track all'italiano. Contiene la descrizione del laboratorio con il prof. Petrella, la demo interattiva e la spiegazione tecnica completa.</p>
         <div class="hero-actions">
-          <a class="btn primary" href="#demo">Vai alla demo</a>
+          <a class="btn primary" href="#demo">Prova la demo</a>
+          <a class="btn warm" href="https://alimentazione2asa.netlify.app/" target="_blank">Apri NutriTrack ↗</a>
           <a class="btn secondary" href="#guida">Come creare</a>
         </div>
         <div class="hero-meta">
           <div class="meta-card"><strong>Classe</strong> 2ª ASA</div>
-          <div class="meta-card"><strong>Materie</strong> Scienze, Fisica, Nutri-track, Italiano</div>
+          <div class="meta-card"><strong>Materie</strong> Scienze, Fisica, Arte/NutriTrack, Italiano</div>
         </div>
       </div>
       <div class="card card-light">
         <h3 class="card-title">Obiettivi del progetto</h3>
-        <p class="card-text">Creare un’app educativa per valutare calorie ingerite e bruciate, collegare il lavoro a strumenti digitali (GitHub, Netlify, Supabase) e raccontare il percorso in modo chiaro e moderno.</p>
-        <div class="chip">Palette fissa</div>
-        <div class="chip">Interattività</div>
-        <div class="chip">Layout semplice</div>
+        <p class="card-text">Creare un'app educativa per valutare calorie ingerite e bruciate, collegare il lavoro a strumenti digitali (GitHub, Netlify, Supabase) e raccontare il percorso in modo chiaro e moderno.</p>
+        <div style="margin-top:0.85rem">
+          <span class="chip">Palette fissa</span>
+          <span class="chip" style="margin-left:0.4rem">Interattività</span>
+          <span class="chip" style="margin-left:0.4rem">Layout semplice</span>
+        </div>
       </div>
     </section>
 
+    <!-- PROGETTO -->
     <section class="section" id="progetto">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Progetto e relazioni</h2>
-          <p class="section-sub">Le fonti di questo progetto vengono dalle nostre relazioni: mostra come i concetti di lavoro, energia e potenza siano stati applicati con la cyclette e il test delle scale.</p>
+          <h2 class="section-title">Il Progetto</h2>
+          <p class="section-sub">Un percorso LLAB interdisciplinare della classe 2ª ASA del Liceo Scientifico Statale Alessandro Volta di Foggia: quattro incontri, quattro materie, un filo conduttore — il corpo umano e la sua energia.</p>
         </div>
         <div class="chip">Laboratorio STEAM</div>
       </div>
-      <div class="grid grid-2">
+
+      <div class="grid grid-2" style="margin-bottom:1.5rem">
         <div class="card">
-          <h3 class="card-title">Obiettivi dell’attività</h3>
-          <p class="card-text">Il progetto descrive come rendere concreti i concetti fisici di lavoro, potenza ed energia collegandoli al consumo calorico quotidiano. Cyclette e test delle scale hanno reso tangibile lo sforzo necessario per bruciare le calorie.</p>
+          <h3 class="card-title">Obiettivi dell'attività</h3>
+          <p class="card-text">Il progetto descrive come rendere concreti i concetti fisici di lavoro, potenza ed energia collegandoli al consumo calorico quotidiano. Cyclette e test delle scale hanno reso tangibile lo sforzo necessario per bruciare le calorie, mentre NutriTrack ha tradotto tutto in un'app usabile.</p>
         </div>
         <div class="card card-light">
           <h3 class="card-title">Team del progetto</h3>
-          <p class="card-text">Il team è composto da: Di Biase Francesco, Di Marzio Manuele, Durante Davide, Dei Davide, Buccino Chiara e Sara Pompilio.</p>
+          <p class="card-text">Di Biase Francesco, Di Marzio Manuele, Durante Davide, Dei Davide, Buccino Chiara e Pompilio Sara.</p>
+          <p class="card-text" style="margin-top:0.75rem"><strong>Docenti:</strong> Prof. Petrella Giovanni (Scienze), Prof. Dembech Antonio (Fisica), Prof. Cibelli Stefano (Arte / NutriTrack), Prof. Bottalico Francesco (Italiano).</p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>1° Incontro — Scienze · Prof. Petrella Giovanni</h4>
+          <p>Diario alimentare di 3 giorni, misurazioni antropometriche, calcolo del BMI e del metabolismo basale con la formula di Harris-Benedict. Analisi del fabbisogno calorico e dei macronutrienti.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>2° Incontro — Fisica · Prof. Dembech Antonio</h4>
+          <p>Laboratorio con la cyclette: smontaggio e misura del volano, energia cinetica rotazionale. Test di potenza sulle scale. Progetto MIT AI2: app mobile collegata a Google Moduli e Google Fogli.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>3° Incontro — Italiano · Prof. Bottalico Francesco</h4>
+          <p>Analisi di tre testi sull'alimentazione: testo argomentativo sulla fame nel mondo, testo poetico "Il pane" di Umberto Saba, testo espositivo sui disturbi del comportamento alimentare.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>4° Incontro — Arte e Tech · Prof. Cibelli Stefano</h4>
+          <p>Presentazione di NutriTrack nell'aula STEAM. Il prof. Cibelli ha spiegato l'intero workflow tecnico: Claude Code → GitHub → Netlify → Supabase → Google Sheets. L'alunno Amlal ha aiutato nella spiegazione. Gli studenti hanno testato l'app e segnalato i bug.</p>
         </div>
       </div>
     </section>
 
+    <!-- SCIENZA -->
     <section class="section" id="scienza">
       <div class="section-header">
         <div>
@@ -191,77 +236,214 @@
         </div>
         <div class="chip">Studio nutrizionale</div>
       </div>
+
       <div class="grid grid-2">
         <div class="card">
           <h3 class="card-title">Calorie e metabolismo</h3>
-          <p class="card-text">La app calcola il metabolismo basale (MB) e il fabbisogno energetico in base a età, peso, altezza e genere, poi propone deficit, mantenimento o surplus.</p>
+          <p class="card-text">L'app calcola il metabolismo basale (MB) e il fabbisogno energetico in base a età, peso, altezza e genere, poi propone deficit, mantenimento o surplus.</p>
         </div>
         <div class="card card-light">
           <h3 class="card-title">Risultato finale</h3>
-          <p class="card-text">Vengono stimate le calorie nette, cioè l’energia assunta meno quella bruciata, per comprendere meglio il ciclo: mangiare, muoversi, bilanciare.</p>
+          <p class="card-text">Vengono stimate le calorie nette, cioè l'energia assunta meno quella bruciata, per comprendere meglio il ciclo: mangiare, muoversi, bilanciare.</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <h3 style="font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:1rem">Le formule del metabolismo basale</h3>
+
+      <div class="grid grid-2">
+        <div>
+          <div class="formula-box">
+            <div class="formula-label">Formula maschile (Harris-Benedict)</div>
+            <div class="formula-text">MB = 88,36 + (13,4 × <span class="v">peso</span>) + (4,8 × <span class="v">altezza</span>) − (5,7 × <span class="v">età</span>)</div>
+          </div>
+          <div class="formula-box">
+            <div class="formula-label">Formula femminile (Harris-Benedict)</div>
+            <div class="formula-text">MB = 447,6 + (9,2 × <span class="v">peso</span>) + (3,1 × <span class="v">altezza</span>) − (4,3 × <span class="v">età</span>)</div>
+          </div>
+          <p class="card-text" style="margin-top:0.75rem">Il <strong>TDEE</strong> (Total Daily Energy Expenditure) si ottiene moltiplicando il MB per un coefficiente di attività fisica: da 1,2 (sedentario) a 1,75 (molto attivo).</p>
+        </div>
+
+        <div>
+          <div class="goals-grid" style="margin-top:0">
+            <div class="goal-card">
+              <div class="goal-label">Deficit</div>
+              <div class="goal-formula">TDEE × 0,80</div>
+              <div class="goal-desc">Riduzione del 20% per perdere peso</div>
+            </div>
+            <div class="goal-card">
+              <div class="goal-label">Mantenimento</div>
+              <div class="goal-formula">TDEE × 1,00</div>
+              <div class="goal-desc">Stessa energia consumata e assunta</div>
+            </div>
+            <div class="goal-card">
+              <div class="goal-label">Surplus</div>
+              <div class="goal-formula">TDEE × 1,10</div>
+              <div class="goal-desc">Aumento del 10% per guadagnare massa</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- FISICA -->
     <section class="section" id="fisica">
       <div class="section-header">
         <div>
           <h2 class="section-title">Fisica</h2>
-          <p class="section-sub">Analisi del movimento e dell’energia con il prof. Antonio Dembech: come l’attività fisica trasforma il corpo e quantifica il dispendio energetico di camminate, sport e altre azioni.</p>
+          <p class="section-sub">Con il prof. Dembech Antonio: rendere tangibili i concetti di lavoro, potenza ed energia collegandoli al consumo calorico quotidiano. Due attività pratiche e un progetto digitale con MIT AI2.</p>
         </div>
         <div class="chip">Energia in movimento</div>
       </div>
+
+      <!-- Obiettivi -->
+      <div class="card" style="margin-bottom:1.5rem">
+        <h3 class="card-title">Obiettivi dell'attività</h3>
+        <p class="card-text">Con il Prof. Dembech l'attività si è posta l'obiettivo di rendere tangibili i concetti fisici di lavoro, potenza ed energia, collegandoli al consumo calorico quotidiano. Attraverso l'uso della cyclette e il test delle scale, abbiamo tradotto il valore astratto delle calorie in sforzo fisico misurabile.</p>
+      </div>
+
       <div class="grid grid-2">
+        <!-- Cyclette -->
         <div class="card">
-          <h3 class="card-title">Laboratorio e cyclette</h3>
-          <p class="card-text">Nella prima parte abbiamo analizzato il legame tra alimentazione e dispendio energetico. Usando la cyclette, abbiamo simulato il lavoro meccanico richiesto per “bruciare” uno snack.</p>
-          <p class="card-text"><strong>Formule chiave:</strong> W = F·s, v = s/t, kcal consumate = MET × peso × ore, 1 kcal = 4186 J.</p>
+          <h3 class="card-title">Prima parte: Laboratorio e Cyclette</h3>
+          <p class="card-text">Nella prima fase abbiamo analizzato il legame tra alimentazione e dispendio energetico. Utilizzando una cyclette, abbiamo simulato il lavoro necessario per "bruciare" uno snack confezionato. Per comprendere i meccanismi di resistenza abbiamo smontato la cyclette per misurare direttamente la massa del suo disco interno (volano) e calcolarne l'energia cinetica rotazionale.</p>
+
+          <h4 style="font-size:0.9rem;margin:1rem 0 0.5rem;color:var(--text)">Concetti chiave e formule</h4>
+          <div class="formula-box">
+            <div class="formula-label">Lavoro meccanico</div>
+            <div class="formula-text">W = F · s</div>
+          </div>
+          <div class="formula-box">
+            <div class="formula-label">Velocità</div>
+            <div class="formula-text">v = s / t</div>
+          </div>
+          <div class="formula-box">
+            <div class="formula-label">Energia cinetica rotazionale (volano)</div>
+            <div class="formula-text">E = ½ · I · ω²</div>
+          </div>
+          <div class="formula-box">
+            <div class="formula-label">Consumo energetico (MET)</div>
+            <div class="formula-text">kcal = MET × <span class="v">peso</span> × <span class="v">ore</span></div>
+          </div>
+          <div class="formula-box">
+            <div class="formula-label">Conversione energetica</div>
+            <div class="formula-text">1 kcal = 4186 J</div>
+          </div>
+          <p class="card-text" style="margin-top:0.75rem">L'esperimento ha dimostrato come un alimento ad alta densità calorica richieda un tempo prolungato di attività fisica per essere compensato, rendendo evidente la relazione tra massa corporea, velocità e potenza sviluppata.</p>
         </div>
+
+        <!-- Scale -->
         <div class="card card-light">
-          <h3 class="card-title">Test di potenza sulle scale</h3>
-          <p class="card-text">Nella seconda fase la classe ha provato la potenza esplosiva sui corridoi salendo le scale alla massima velocità, mentre i compagni cronometravano la salita.</p>
-          <p class="card-text"><strong>Potenza:</strong> W = m·g·h e P = W/t, con m massa, g accelerazione di gravità (9.81 m/s²), h dislivello e t tempo impiegato.</p>
+          <h3 class="card-title">Seconda parte: Test di potenza sulle scale</h3>
+          <p class="card-text">La classe si è spostata nei corridoi per una prova pratica di potenza esplosiva. Alcuni studenti hanno risalito le scale alla massima velocità possibile, mentre i compagni cronometravano la durata della salita.</p>
+
+          <h4 style="font-size:0.9rem;margin:1rem 0 0.5rem;color:var(--text)">Calcolo della potenza</h4>
+          <div class="formula-box">
+            <div class="formula-label">Lavoro (superamento della forza peso)</div>
+            <div class="formula-text">W = <span class="v">m</span> · g · <span class="v">h</span></div>
+          </div>
+          <div class="formula-box">
+            <div class="formula-label">Potenza sviluppata</div>
+            <div class="formula-text">P = W / <span class="v">t</span></div>
+          </div>
+          <p class="card-text" style="margin-top:0.75rem">Dove <strong>m</strong> è la massa dello studente, <strong>g = 9,81 m/s²</strong> è l'accelerazione di gravità, <strong>h</strong> è il dislivello totale delle scale e <strong>t</strong> è il tempo impiegato.</p>
+
+          <div class="quote" style="margin-top:1rem">
+            <strong>Conclusioni:</strong> salire le scale velocemente richiede una grande potenza (molta energia in poco tempo), ma il lavoro totale dipende principalmente dal peso e dall'altezza delle scale, indipendentemente dalla velocità.
+          </div>
         </div>
       </div>
-      <div class="card card-light">
-        <h3 class="card-title">Conclusioni fisiche</h3>
-        <p class="card-text">L’esperimento ha mostrato la differenza tra energia totale e potenza: salire le scale velocemente richiede molta potenza, ma l’energia dipende soprattutto da peso e altezza delle scale.</p>
+
+      <!-- MIT AI2 -->
+      <div class="card" style="margin-top:1.5rem">
+        <h3 class="card-title">Terza parte: Progetto MIT AI2 Inventor</h3>
+        <p class="card-text">Un'ulteriore attività svolta con il prof. Dembech: creare un flusso dati completo tra un'app mobile, Google Moduli e Google Fogli.</p>
+
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <p>Abbiamo creato un <strong>Google Moduli</strong> con 2 risposte aperte per raccogliere i dati inseriti dagli utenti.</p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <p>Tramite un link su Google Moduli abbiamo collegato un <strong>Google Fogli</strong>: ogni risposta inviata al modulo si aggiungeva automaticamente come riga nella tabella.</p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">3</div>
+            <p>Con il software <strong>MIT AI2 Inventor</strong> abbiamo costruito un'app mobile: due caselle di testo per inserire i dati e un tasto "Invia dati".</p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">4</div>
+            <p>Tramite la programmazione a blocchi di AI2, il tasto "Invia dati" inviava i dati al <strong>Google Moduli</strong>, che a sua volta li trasferiva automaticamente a <strong>Google Fogli</strong>.</p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">5</div>
+            <p>Risultato: i dati inseriti sull'app venivano visualizzati in tempo reale sul foglio di calcolo — <strong>App → Moduli → Fogli</strong>.</p>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- NUTRI-TRACK -->
     <section class="section" id="nutri-track">
       <div class="section-header">
         <div>
           <h2 class="section-title">Nutri-track</h2>
-          <p class="section-sub">Approfondimento sul prodotto: l’app Nutri-track propone la funzione di calcolo del fabbisogno calorico con un design studiato per la classe, guidata da Stefano Cibelli.</p>
+          <p class="section-sub">Approfondimento sul prodotto: l'app NutriTrack propone il calcolo del fabbisogno calorico, sviluppata dal prof. Cibelli Stefano nell'ambito del laboratorio di Arte e Tecnologia.</p>
         </div>
-        <div class="chip">Prodotto Nutri-track</div>
+        <div class="chip">Prodotto NutriTrack</div>
       </div>
+
+      <div style="margin-bottom:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+        <a class="btn primary" href="#demo">Prova la demo</a>
+        <a class="btn warm" href="https://alimentazione2asa.netlify.app/" target="_blank">Apri NutriTrack ↗</a>
+      </div>
+
       <div class="grid grid-2">
         <div class="card">
           <h3 class="card-title">Funzionalità principali</h3>
           <p class="card-text">Calcolo del metabolismo, obiettivi calorici e ripartizione dei macronutrienti per aiutare gli studenti a visualizzare i risultati in modo immediato.</p>
-          <p class="card-text"><strong>Responsabile:</strong> Stefano Cibelli.</p>
+          <p class="card-text"><strong>Responsabile:</strong> Prof. Cibelli Stefano.</p>
         </div>
         <div class="card card-light">
           <h3 class="card-title">Stile e usabilità</h3>
-          <p class="card-text">La pagina è organizzata in blocchi distinti con etichette chiare, per rendere l’app semplice da usare e con un messaggio coerente per il progetto di classe.</p>
+          <p class="card-text">La pagina è organizzata in blocchi distinti con etichette chiare, per rendere l'app semplice da usare e con un messaggio coerente per il progetto di classe.</p>
         </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:1.5rem">
+        <div class="card">
+          <h3 class="card-title">Cosa offre l'app</h3>
+          <p class="card-text">NutriTrack guida lo studente nel comprendere il metabolismo, le calorie e le scelte nutrizionali in modo pratico e visuale.</p>
+          <p class="card-text">L'app nasce per aiutare gli studenti a valutare il proprio fabbisogno calorico e capire come integrare alimentazione e movimento.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Valore didattico</h3>
+          <p class="card-text">Il progetto mette insieme matematica, scienze, fisica e comunicazione per spiegare come funziona un'app educativa in modo chiaro.</p>
+          <p class="card-text">Questa parte del laboratorio mostra come uno strumento digitale può sostenere l'apprendimento e la scelta consapevole.</p>
+        </div>
+      </div>
+
+      <div class="card card-light" style="margin-top:1.5rem">
+        <h3 class="card-title">Problematiche affrontate</h3>
+        <p class="card-text">Tra i problemi emersi: limiti dei token gratuiti durante lo sviluppo con Claude Code, difficoltà nell'inserire alcuni alimenti, gestione dei bug emersi durante il test in classe e integrazione Google Sheets semplificata con login diretto Google.</p>
       </div>
     </section>
 
+    <!-- ITALIANO -->
     <section class="section" id="italiano">
       <div class="section-header">
         <div>
           <h2 class="section-title">Italiano</h2>
-          <p class="section-sub">Spiegazione, relazione e comunicazione: come raccontare il lavoro fatto in modo corretto e convincente, con testi organizzati e concisi.</p>
+          <p class="section-sub">Spiegazione, relazione e comunicazione: raccontare il lavoro fatto in modo corretto e convincente, con testi organizzati e concisi.</p>
         </div>
-        <div class="chip">Prof. Francesco Bottalico</div>
+        <div class="chip">Prof. Bottalico Francesco</div>
       </div>
       <div class="grid grid-2">
         <div class="card">
           <h3 class="card-title">Relazione orale e scritta</h3>
-          <p class="card-text">Gli studenti hanno presentato le scelte progettuali, discusso i problemi incontrati e spiegato le funzionalità dell’app al professore e ai compagni.</p>
+          <p class="card-text">Gli studenti hanno presentato le scelte progettuali, discusso i problemi incontrati e spiegato le funzionalità dell'app al professore e ai compagni.</p>
         </div>
         <div class="card card-light">
           <h3 class="card-title">Contenuti chiari</h3>
@@ -270,19 +452,20 @@
       </div>
     </section>
 
+    <!-- RELAZIONE -->
     <section class="section" id="relazione">
       <div class="section-header">
         <div>
           <h2 class="section-title">Relazione Learning Lab STEAM</h2>
-          <p class="section-sub">Relazione del laboratorio dedicato all’educazione alimentare, con l’analisi di testi argomentativi, espositivi e poetici.</p>
+          <p class="section-sub">Relazione del laboratorio dedicato all'educazione alimentare, con l'analisi di testi argomentativi, espositivi e poetici.</p>
         </div>
         <div class="chip">Analisi testuale</div>
       </div>
       <div class="card">
-        <p class="card-text">Nell'ambito del corso STEAM, abbiamo partecipato a uno dei quattro Learning Lab dedicato al tema dell'educazione alimentare, guidato dal professor Francesco Bottalico. L'obiettivo principale dell'attività è stato quello di superare la visione puramente biologica della nutrizione, esplorando l'alimentazione attraverso una lente multidisciplinare.</p>
+        <p class="card-text">Nell'ambito del corso STEAM, abbiamo partecipato a uno dei quattro Learning Lab dedicato al tema dell'educazione alimentare, guidato dal professor Bottalico Francesco. L'obiettivo principale dell'attività è stato quello di superare la visione puramente biologica della nutrizione, esplorando l'alimentazione attraverso una lente multidisciplinare.</p>
         <p class="card-text">Grazie alla lettura critica e all'analisi di tre testi di natura differente (argomentativo, espositivo e poetico), abbiamo potuto riflettere su come il cibo sia intrinsecamente legato alla salute mentale, alle dinamiche geopolitiche globali e alla sfera etico-valoriale dell'essere umano.</p>
       </div>
-      <div class="grid grid-2">
+      <div class="grid grid-2" style="margin-top:1.5rem">
         <div class="card">
           <h3 class="card-title">Metodo del laboratorio</h3>
           <p class="card-text"><strong>Fase 1:</strong> lavoro collettivo di classe. La lettura condivisa dei testi ci ha permesso di allineare la comprensione e rimuovere i primi dubbi interpretativi.</p>
@@ -296,33 +479,30 @@
           <p class="card-text"><strong>Testo espositivo:</strong> "Disturbi del Comportamento Alimentare: oltre lo Specchio", che analizza Anoressia Nervosa, Bulimia Nervosa e Binge Eating Disorder.</p>
         </div>
       </div>
-      <div class="card card-light">
+      <div class="card card-light" style="margin-top:1.5rem">
         <h3 class="card-title">Osservazioni personali</h3>
         <p class="card-text">Il testo espositivo ha mostrato come i DCA non siano semplici capricci estetici, ma disturbi multifattoriali con componenti biologiche, psicologiche e socio-culturali, oggi amplificate dai social media.</p>
         <p class="card-text">Il concetto del paradosso del controllo ha colpito particolarmente: l'illusione di dominare la propria vita attraverso restrizione o cibo, mentre è il disturbo a prendere il controllo, isolando la persona.</p>
         <p class="card-text">Questa lettura ha sviluppato empatia e consapevolezza sul fatto che il cibo può diventare lo specchio di una sofferenza emotiva che richiede cure multidisciplinari.</p>
       </div>
-      <div class="quote"><strong>Conclusione:</strong> questo Learning Lab ha dimostrato lo spirito STEAM, applicando l'analisi critica e la comprensione del testo a problemi reali e socialmente rilevanti.</div>
-      <div class="card card-light">
-        <h3 class="card-title">Un'altra parte</h3>
-        <p class="card-text">Questa relazione si integra con la parte pratica del progetto, collegando l'approfondimento testuale con l'esperienza di Nutri-track e il lavoro di laboratorio.</p>
-      </div>
+      <div class="quote" style="margin-top:1.5rem"><strong>Conclusione:</strong> questo Learning Lab ha dimostrato lo spirito STEAM, applicando l'analisi critica e la comprensione del testo a problemi reali e socialmente rilevanti.</div>
     </section>
 
+    <!-- NUTRI INFO -->
     <section class="section" id="nutri-info">
       <div class="section-header">
         <div>
           <h2 class="section-title">Dettagli Nutri-track</h2>
-          <p class="section-sub">L’app nasce per aiutare gli studenti a valutare il proprio fabbisogno calorico e capire come integrare alimentazione e movimento.</p>
+          <p class="section-sub">L'app nasce per aiutare gli studenti a valutare il proprio fabbisogno calorico e capire come integrare alimentazione e movimento.</p>
         </div>
       </div>
       <div class="grid grid-2">
         <div class="card">
           <h3 class="card-title">Funzionalità principali</h3>
           <ul class="feature-list">
-            <li class="feature-item"><span class="feature-bullet"></span><div><strong>Calorie ingerite</strong><p>Inserisci alimenti e quantità per stimare l’apporto giornaliero.</p></div></li>
-            <li class="feature-item"><span class="feature-bullet"></span><div><strong>Calorie bruciate</strong><p>Registra le attività fisiche anche leggere, come una passeggiata di 20 minuti.</p></div></li>
-            <li class="feature-item"><span class="feature-bullet"></span><div><strong>Fabbisogno</strong><p>Calcola il metabolismo basale maschile o femminile e propone deficit, mantenimento o surplus.</p></div></li>
+            <li class="feature-item"><span class="feature-bullet"></span><div><strong>Calorie ingerite</strong><p class="card-text">Inserisci alimenti e quantità per stimare l'apporto giornaliero.</p></div></li>
+            <li class="feature-item"><span class="feature-bullet"></span><div><strong>Calorie bruciate</strong><p class="card-text">Registra le attività fisiche anche leggere, come una passeggiata di 20 minuti.</p></div></li>
+            <li class="feature-item"><span class="feature-bullet"></span><div><strong>Fabbisogno</strong><p class="card-text">Calcola il metabolismo basale e propone deficit, mantenimento o surplus.</p></div></li>
           </ul>
         </div>
         <div class="card">
@@ -330,67 +510,70 @@
           <p class="card-text">Il gruppo ha utilizzato GitHub per il codice, Netlify per il deployment, Supabase per gestire i dati utente e le API di Google Sheets per esportare i dati.</p>
         </div>
       </div>
-      <div class="card card-light">
+      <div class="card card-light" style="margin-top:1.5rem">
         <h3 class="card-title">Problematiche affrontate</h3>
-        <p class="card-text">Tra i problemi emersi: limiti dei token gratuiti, difficoltà nell’inserire alimenti, gestione dei bug e test dell’app insieme al professore.</p>
+        <p class="card-text">Tra i problemi emersi: limiti dei token gratuiti, difficoltà nell'inserire alimenti, gestione dei bug e test dell'app insieme al professore.</p>
       </div>
     </section>
 
+    <!-- CODICE -->
     <section class="section" id="codice">
       <div class="section-header">
         <div>
           <h2 class="section-title">Parte tecnica</h2>
-          <p class="section-sub">Spiegazione chiara del funzionamento front-end e back-end dell’app, con i servizi e gli strumenti usati per costruire il progetto.</p>
+          <p class="section-sub">Spiegazione chiara del funzionamento front-end e back-end dell'app, con i servizi e gli strumenti usati per costruire il progetto.</p>
         </div>
         <div class="chip">Architettura web</div>
       </div>
       <div class="grid grid-2">
         <div class="card">
           <h3 class="card-title">Front-end</h3>
-          <p class="card-text">La pagina è costruita con HTML per i contenuti, CSS per il look e il layout, e JavaScript per i calcoli, i grafici e l’interazione dell’utente.</p>
-          <div class="feature-list">
-            <div class="feature-item"><span class="feature-bullet"></span><div><strong>HTML</strong><p>Struttura delle sezioni, titoli, form e risultati.</p></div></div>
-            <div class="feature-item"><span class="feature-bullet"></span><div><strong>CSS</strong><p>Palette fissa, spaziature, bordi arrotondati e design responsive.</p></div></div>
-            <div class="feature-item"><span class="feature-bullet"></span><div><strong>JavaScript</strong><p>Calcolo del metabolismo, indicatori dinamici e aggiornamento dei risultati in tempo reale.</p></div></div>
+          <p class="card-text">La pagina è costruita con HTML per i contenuti, CSS per il look e il layout, e JavaScript per i calcoli, i grafici e l'interazione dell'utente.</p>
+          <div class="feature-list" style="margin-top:1rem">
+            <div class="feature-item"><span class="feature-bullet"></span><div><strong>HTML</strong><p class="card-text">Struttura delle sezioni, titoli, form e risultati.</p></div></div>
+            <div class="feature-item"><span class="feature-bullet"></span><div><strong>CSS</strong><p class="card-text">Palette fissa, spaziature, bordi arrotondati e design responsive.</p></div></div>
+            <div class="feature-item"><span class="feature-bullet"></span><div><strong>JavaScript</strong><p class="card-text">Calcolo del metabolismo, indicatori dinamici e aggiornamento dei risultati in tempo reale.</p></div></div>
           </div>
         </div>
         <div class="card">
           <h3 class="card-title">Back-end</h3>
-          <p class="card-text">Per una app reale, il back-end gestisce i dati, l’autenticazione e l’archiviazione: GitHub per il codice, Netlify per il deploy, Supabase per il database e Google Cloud per i fogli.</p>
-          <div class="feature-list">
-            <div class="feature-item"><span class="feature-bullet"></span><div><strong>GitHub</strong><p>Salvataggio del progetto, versionamento e collaborazione del gruppo.</p></div></div>
-            <div class="feature-item"><span class="feature-bullet"></span><div><strong>Netlify</strong><p>Pubblicazione automatica del sito statico e hosting sicuro.</p></div></div>
-            <div class="feature-item"><span class="feature-bullet"></span><div><strong>Supabase</strong><p>Database serverless per salvare utenti, preferenze e dati di consumo.</p></div></div>
+          <p class="card-text">Per una app reale, il back-end gestisce i dati, l'autenticazione e l'archiviazione: GitHub per il codice, Netlify per il deploy, Supabase per il database e Google Cloud per i fogli.</p>
+          <div class="feature-list" style="margin-top:1rem">
+            <div class="feature-item"><span class="feature-bullet"></span><div><strong>GitHub</strong><p class="card-text">Salvataggio del progetto, versionamento e collaborazione del gruppo.</p></div></div>
+            <div class="feature-item"><span class="feature-bullet"></span><div><strong>Netlify</strong><p class="card-text">Pubblicazione automatica del sito statico e hosting sicuro.</p></div></div>
+            <div class="feature-item"><span class="feature-bullet"></span><div><strong>Supabase</strong><p class="card-text">Database serverless per salvare utenti, preferenze e dati di consumo.</p></div></div>
           </div>
         </div>
       </div>
-      <div class="card card-light">
+      <div class="card card-light" style="margin-top:1.5rem">
         <h3 class="card-title">Come si collega</h3>
         <p class="card-text">La versione presente è una web app statica: il front-end esegue i calcoli nel browser. In un progetto completo, il back-end cloud fornisce API e salvataggio persistente.</p>
         <p class="card-text">Esempio architettura: GitHub → Netlify (deploy) + Supabase (database) + Google Cloud Sheets (esportazione dati) + JavaScript lato client.</p>
       </div>
     </section>
 
+    <!-- APP -->
     <section class="section" id="app">
       <div class="section-header">
         <div>
           <h2 class="section-title">App Nutri-track</h2>
-          <p class="section-sub">Descrizione dell’app e dei suoi obiettivi prima della demo: un prodotto educativo pensato per la classe, con funzioni di calcolo e analisi.</p>
+          <p class="section-sub">Descrizione dell'app e dei suoi obiettivi prima della demo: un prodotto educativo pensato per la classe, con funzioni di calcolo e analisi.</p>
         </div>
         <div class="chip">Prodotto digitale</div>
       </div>
       <div class="grid grid-2">
         <div class="card">
-          <h3 class="card-title">Cosa offre l’app</h3>
+          <h3 class="card-title">Cosa offre l'app</h3>
           <p class="card-text">Nutri-track guida lo studente nel comprendere il metabolismo, le calorie e le scelte nutrizionali in modo pratico e visuale.</p>
         </div>
         <div class="card">
           <h3 class="card-title">Valore didattico</h3>
-          <p class="card-text">Il progetto mette insieme matematica, scienze, fisica e comunicazione per spiegare come funziona un’app educativa in modo chiaro.</p>
+          <p class="card-text">Il progetto mette insieme matematica, scienze, fisica e comunicazione per spiegare come funziona un'app educativa in modo chiaro.</p>
         </div>
       </div>
     </section>
 
+    <!-- DEMO -->
     <section class="section" id="demo">
       <div class="section-header">
         <div>
@@ -409,41 +592,45 @@
             <div class="field"><label for="height">Altezza (cm)</label><input id="height" type="number" min="120" max="220" value="170"></div>
             <div class="field"><label for="activity">Attività giornaliera</label><select id="activity"><option value="1.2">Sedentario</option><option value="1.35">Leggero</option><option value="1.55">Moderato</option><option value="1.75">Attivo</option></select></div>
           </div>
-          <button class="btn primary" id="calculateBtn">Calcola ora</button>
-          <div class="result" id="resultBox" aria-live="polite">
+          <button class="btn primary" id="calculateBtn" style="width:100%;margin-top:0.5rem">Calcola ora</button>
+          <div class="result" id="resultBox" aria-live="polite" style="display:none">
             <div class="result-box"><strong id="tdeeValue">-</strong><span>Calorie consigliate</span></div>
             <div class="result-box"><strong id="goalText">-</strong><span>Obiettivo scelto</span></div>
-            <div class="result-box"><strong id="netCalories">-</strong><span>Calorie nette</span></div>
+            <div class="result-box"><strong id="netCalories">-</strong><span>MB (metabolismo basale)</span></div>
           </div>
-          <div class="bars">
-            <div class="bar-row"><span>Carboidrati</span><div class="bar"><div class="bar-fill carbs" id="barCarbs" style="width: 40%"></div></div></div>
-            <div class="bar-row"><span>Proteine</span><div class="bar"><div class="bar-fill protein" id="barProtein" style="width: 30%"></div></div></div>
-            <div class="bar-row"><span>Grassi</span><div class="bar"><div class="bar-fill fat" id="barFat" style="width: 30%"></div></div></div>
+          <div class="bars" id="barsBox" style="display:none">
+            <div class="bar-row"><span>Carboidrati</span><div class="bar"><div class="bar-fill carbs" id="barCarbs" style="width:45%"></div></div></div>
+            <div class="bar-row"><span>Proteine</span><div class="bar"><div class="bar-fill protein" id="barProtein" style="width:25%"></div></div></div>
+            <div class="bar-row"><span>Grassi</span><div class="bar"><div class="bar-fill fat" id="barFat" style="width:30%"></div></div></div>
           </div>
         </div>
         <div class="card">
           <h3 class="card-title">Come funziona il calcolo</h3>
-          <p class="card-text">Nutri-track calcola il metabolismo basale con una formula semplificata, moltiplica per il livello di attività e applica l’obiettivo scelto: deficit, mantenimento, surplus.</p>
-          <div class="feature-list">
-            <div class="feature-item"><span class="feature-bullet"></span><div><strong>MB</strong><p>Basato su età, peso, altezza e genere.</p></div></div>
-            <div class="feature-item"><span class="feature-bullet"></span><div><strong>TDEE</strong><p>Metabolismo totale con l’attività fisica.</p></div></div>
-            <div class="feature-item"><span class="feature-bullet"></span><div><strong>Macro</strong><p>Ripartizione consigliata per carboidrati, proteine e grassi.</p></div></div>
+          <p class="card-text">Nutri-track calcola il metabolismo basale con la formula di Harris-Benedict, moltiplica per il livello di attività e applica l'obiettivo scelto: deficit, mantenimento, surplus.</p>
+          <div class="feature-list" style="margin-top:1rem">
+            <div class="feature-item"><span class="feature-bullet"></span><div><strong>MB</strong><p class="card-text">Basato su età, peso, altezza e genere (Harris-Benedict).</p></div></div>
+            <div class="feature-item"><span class="feature-bullet"></span><div><strong>TDEE</strong><p class="card-text">Metabolismo totale con l'attività fisica (MB × LAF).</p></div></div>
+            <div class="feature-item"><span class="feature-bullet"></span><div><strong>Macro</strong><p class="card-text">Ripartizione consigliata per carboidrati, proteine e grassi.</p></div></div>
+          </div>
+          <div style="margin-top:1.25rem">
+            <a class="btn warm" href="https://alimentazione2asa.netlify.app/" target="_blank">Apri NutriTrack completo ↗</a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- GUIDA -->
     <section class="section" id="guida">
       <div class="section-header">
         <div>
           <h2 class="section-title">Guida: come creare una web app</h2>
-          <p class="section-sub">Passi chiari per costruire una web app, perfetti per il lavoro di gruppo e per spiegare l’intero processo alla classe.</p>
+          <p class="section-sub">Passi chiari per costruire una web app, perfetti per il lavoro di gruppo e per spiegare l'intero processo alla classe.</p>
         </div>
       </div>
       <div class="grid grid-3">
         <div class="card">
-          <h3 class="card-title">1. Scegli l’idea</h3>
-          <p class="card-text">Definisci lo scopo: nel nostro caso l’app deve aiutare a gestire calorie, attività e suggerire piani alimentari.</p>
+          <h3 class="card-title">1. Scegli l'idea</h3>
+          <p class="card-text">Definisci lo scopo: nel nostro caso l'app deve aiutare a gestire calorie, attività e suggerire piani alimentari.</p>
         </div>
         <div class="card">
           <h3 class="card-title">2. Progetta la struttura</h3>
@@ -451,7 +638,7 @@
         </div>
         <div class="card">
           <h3 class="card-title">3. Costruisci il design</h3>
-          <p class="card-text">Usa HTML per i contenuti, CSS per lo stile e JavaScript per l’interattività. Evita colori troppo sgargianti.</p>
+          <p class="card-text">Usa HTML per i contenuti, CSS per lo stile e JavaScript per l'interattività. Evita colori troppo sgargianti.</p>
         </div>
         <div class="card">
           <h3 class="card-title">4. Aggiungi interattività</h3>
@@ -466,9 +653,10 @@
           <p class="card-text">Usa Netlify o GitHub Pages per pubblicare. Collega il progetto a GitHub per gestire versioni e aggiornamenti.</p>
         </div>
       </div>
-      <div class="quote"><strong>Vibes coding:</strong> costruisci l’app con passi semplici, inizia dal contenuto, poi dal layout, quindi aggiungi le funzioni e infine pubblica.</div>
+      <div class="quote" style="margin-top:1.5rem"><strong>Vibe coding:</strong> costruisci l'app con passi semplici, inizia dal contenuto, poi dal layout, quindi aggiungi le funzioni e infine pubblica.</div>
     </section>
 
+    <!-- TEAM -->
     <section class="section" id="team">
       <div class="section-header">
         <div>
@@ -479,28 +667,29 @@
       <div class="grid grid-3">
         <div class="card card-light">
           <h3 class="card-title">Team</h3>
-          <p class="card-text">Di Biase Francesco, Di Marzio Manuele, Durante Davide, Dei Davide, Buccino Chiara e Sara Pompilio.</p>
+          <p class="card-text">Di Biase Francesco, Di Marzio Manuele, Durante Davide, Dei Davide, Buccino Chiara e Pompilio Sara.</p>
         </div>
         <div class="card card-light">
           <h3 class="card-title">Docenti</h3>
-          <p class="card-text">Prof. Petrella Giovanni per la scienza, Prof. Antonio Dembech per la fisica, Prof. Francesco Bottalico per l’italiano, Prof. Ossi A. per l’arte e Stefano Cibelli per Nutri-track.</p>
+          <p class="card-text">Prof. Petrella Giovanni (Scienze), Prof. Dembech Antonio (Fisica), Prof. Bottalico Francesco (Italiano), Prof. Cibelli Stefano (Arte / NutriTrack).</p>
         </div>
         <div class="card card-light">
           <h3 class="card-title">Strumenti digitali</h3>
-          <p class="card-text">GitHub per il codice, Netlify per pubblicare il sito, Supabase per la gestione dati, Google Cloud per l’esportazione su Fogli Google.</p>
+          <p class="card-text">Claude Code, GitHub, Netlify, Supabase, Google Cloud Sheets API, MIT AI2 Inventor, Google Moduli, Google Fogli.</p>
         </div>
       </div>
     </section>
 
     <footer class="footer">
-      <p>Web app creata per il progetto 2ASA LLAB — Il Ciclo della Vita. Puoi aprire <strong>index.html</strong> direttamente nel browser per visualizzare la demo.</p>
-      <p>Created with calm palette, responsive layout, and interactive Nutri-track elements.</p>
+      <p>Web app creata per il progetto 2ASA LLAB — Il Ciclo della Vita. Le informazioni provengono dalle nostre relazioni scolastiche.</p>
+      <p><a href="https://alimentazione2asa.netlify.app/" target="_blank">Apri NutriTrack</a> · Liceo Scientifico Statale Alessandro Volta, Foggia · A.S. 2025-26</p>
     </footer>
   </div>
 
   <script>
     const calculateBtn = document.getElementById('calculateBtn');
     const resultBox = document.getElementById('resultBox');
+    const barsBox = document.getElementById('barsBox');
     const tdeeValue = document.getElementById('tdeeValue');
     const goalText = document.getElementById('goalText');
     const netCalories = document.getElementById('netCalories');
@@ -520,15 +709,12 @@
     }
 
     function updateMacros(calories) {
-      const carbs = 0.45 * calories;
-      const protein = 0.25 * calories;
-      const fat = 0.30 * calories;
-      const carbsPct = Math.min(100, Math.round((carbs / calories) * 100));
-      const proteinPct = Math.min(100, Math.round((protein / calories) * 100));
-      const fatPct = Math.min(100, Math.round((fat / calories) * 100));
-      barCarbs.style.width = `${carbsPct}%`;
-      barProtein.style.width = `${proteinPct}%`;
-      barFat.style.width = `${fatPct}%`;
+      const carbsPct = 45;
+      const proteinPct = 25;
+      const fatPct = 30;
+      barCarbs.style.width = carbsPct + '%';
+      barProtein.style.width = proteinPct + '%';
+      barFat.style.width = fatPct + '%';
     }
 
     calculateBtn.addEventListener('click', () => {
@@ -549,17 +735,18 @@
       let label = 'Mantenimento';
       if (goal === 'deficit') {
         target = tdee * 0.8;
-        label = 'Deficit calorico';
+        label = 'Deficit calorico (−20%)';
       }
       if (goal === 'surplus') {
         target = tdee * 1.1;
-        label = 'Surplus calorico';
+        label = 'Surplus calorico (+10%)';
       }
       tdeeValue.textContent = formatNumber(target) + ' kcal';
-      goalText.textContent = `${label}`;
-      netCalories.textContent = `${formatNumber(target - 0.15 * target)} kcal netti`;
+      goalText.textContent = label;
+      netCalories.textContent = formatNumber(mb) + ' kcal';
       updateMacros(target);
       resultBox.style.display = 'grid';
+      barsBox.style.display = 'grid';
     });
   </script>
 </body>
