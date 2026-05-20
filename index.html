@@ -116,6 +116,16 @@
     .bar-fill.carbs { background: #7fa697; }
     .bar-fill.protein { background: #c48b62; }
     .bar-fill.fat { background: #8e826e; }
+    .bar-value { min-width: 42px; text-align: right; color: var(--text-muted); font-size: 0.9rem; }
+    .macro-chart { display: grid; gap: 1rem; margin-top: 1.25rem; align-items: center; }
+    .chart-circle { width: 180px; height: 180px; border-radius: 50%; background: conic-gradient(#7fa697 45%, #c48b62 45% 70%, #8e826e 70% 100%); margin: 0 auto; box-shadow: inset 0 0 0 8px var(--surface); }
+    .chart-legend { display: grid; gap: 0.75rem; }
+    .legend-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.95rem; color: var(--text); }
+    .legend-color { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
+    .legend-item strong { margin-left: auto; color: var(--accent); font-weight: 700; }
+    .legend-carbs .legend-color { background: #7fa697; }
+    .legend-protein .legend-color { background: #c48b62; }
+    .legend-fat .legend-color { background: #8e826e; }
     /* Goals grid */
     .goals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.25rem; }
     .goal-card { background: var(--surface-strong); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; text-align: center; }
@@ -153,7 +163,6 @@
         <a href="#italiano">Italiano</a>
         <a href="#relazione">Relazione</a>
         <a href="#codice">Codice</a>
-        <a href="#app">App</a>
         <a href="#demo">Demo</a>
       </div>
     </nav>
@@ -429,6 +438,22 @@
         <h3 class="card-title">Problematiche affrontate</h3>
         <p class="card-text">Tra i problemi emersi: limiti dei token gratuiti durante lo sviluppo con Claude Code, difficoltà nell'inserire alcuni alimenti, gestione dei bug emersi durante il test in classe e integrazione Google Sheets semplificata con login diretto Google.</p>
       </div>
+      <div class="grid grid-2" style="margin-top:1.5rem">
+        <div class="card">
+          <h3 class="card-title">Dettagli NutriTrack</h3>
+          <p class="card-text">L'app supporta il calcolo del metabolismo basale, la stima del fabbisogno e la proposta di deficit, mantenimento o surplus. La visualizzazione dei macro aiuta a capire la ripartizione tra carboidrati, proteine e grassi.</p>
+          <ul class="feature-list">
+            <li class="feature-item"><span class="feature-bullet"></span><div><strong>Calorie ingerite</strong><p class="card-text">Inserisci alimenti e quantità per stimare l'apporto giornaliero.</p></div></li>
+            <li class="feature-item"><span class="feature-bullet"></span><div><strong>Calorie bruciate</strong><p class="card-text">Registra le attività fisiche e visualizza il consumo energetico.</p></div></li>
+            <li class="feature-item"><span class="feature-bullet"></span><div><strong>Fabbisogno</strong><p class="card-text">Calcola MB e TDEE per suggerire una strategia nutrizionale adatta allo studente.</p></div></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Tecnologie e flusso</h3>
+          <p class="card-text">Il progetto utilizza GitHub per il codice, Netlify per il deploy e una struttura dati basata su Google Sheets per l'analisi. Una parte del percorso include anche Google Moduli e MIT AI2 Inventor per la raccolta dati in classe.</p>
+          <p class="card-text">Questa architettura dimostra come un'app didattica può unire design, calcoli nutrizionali e backend cloud in un unico workflow.</p>
+        </div>
+      </div>
     </section>
 
     <!-- ITALIANO -->
@@ -488,34 +513,6 @@
       <div class="quote" style="margin-top:1.5rem"><strong>Conclusione:</strong> questo Learning Lab ha dimostrato lo spirito STEAM, applicando l'analisi critica e la comprensione del testo a problemi reali e socialmente rilevanti.</div>
     </section>
 
-    <!-- NUTRI INFO -->
-    <section class="section" id="nutri-info">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Dettagli Nutri-track</h2>
-          <p class="section-sub">L'app nasce per aiutare gli studenti a valutare il proprio fabbisogno calorico e capire come integrare alimentazione e movimento.</p>
-        </div>
-      </div>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3 class="card-title">Funzionalità principali</h3>
-          <ul class="feature-list">
-            <li class="feature-item"><span class="feature-bullet"></span><div><strong>Calorie ingerite</strong><p class="card-text">Inserisci alimenti e quantità per stimare l'apporto giornaliero.</p></div></li>
-            <li class="feature-item"><span class="feature-bullet"></span><div><strong>Calorie bruciate</strong><p class="card-text">Registra le attività fisiche anche leggere, come una passeggiata di 20 minuti.</p></div></li>
-            <li class="feature-item"><span class="feature-bullet"></span><div><strong>Fabbisogno</strong><p class="card-text">Calcola il metabolismo basale e propone deficit, mantenimento o surplus.</p></div></li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 class="card-title">Tecnologie di progetto</h3>
-          <p class="card-text">Il gruppo ha utilizzato GitHub per il codice, Netlify per il deployment, Supabase per gestire i dati utente e le API di Google Sheets per esportare i dati.</p>
-        </div>
-      </div>
-      <div class="card card-light" style="margin-top:1.5rem">
-        <h3 class="card-title">Problematiche affrontate</h3>
-        <p class="card-text">Tra i problemi emersi: limiti dei token gratuiti, difficoltà nell'inserire alimenti, gestione dei bug e test dell'app insieme al professore.</p>
-      </div>
-    </section>
-
     <!-- CODICE -->
     <section class="section" id="codice">
       <div class="section-header">
@@ -552,27 +549,6 @@
       </div>
     </section>
 
-    <!-- APP -->
-    <section class="section" id="app">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">App Nutri-track</h2>
-          <p class="section-sub">Descrizione dell'app e dei suoi obiettivi prima della demo: un prodotto educativo pensato per la classe, con funzioni di calcolo e analisi.</p>
-        </div>
-        <div class="chip">Prodotto digitale</div>
-      </div>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3 class="card-title">Cosa offre l'app</h3>
-          <p class="card-text">Nutri-track guida lo studente nel comprendere il metabolismo, le calorie e le scelte nutrizionali in modo pratico e visuale.</p>
-        </div>
-        <div class="card">
-          <h3 class="card-title">Valore didattico</h3>
-          <p class="card-text">Il progetto mette insieme matematica, scienze, fisica e comunicazione per spiegare come funziona un'app educativa in modo chiaro.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- DEMO -->
     <section class="section" id="demo">
       <div class="section-header">
@@ -598,10 +574,13 @@
             <div class="result-box"><strong id="goalText">-</strong><span>Obiettivo scelto</span></div>
             <div class="result-box"><strong id="netCalories">-</strong><span>MB (metabolismo basale)</span></div>
           </div>
-          <div class="bars" id="barsBox" style="display:none">
-            <div class="bar-row"><span>Carboidrati</span><div class="bar"><div class="bar-fill carbs" id="barCarbs" style="width:45%"></div></div></div>
-            <div class="bar-row"><span>Proteine</span><div class="bar"><div class="bar-fill protein" id="barProtein" style="width:25%"></div></div></div>
-            <div class="bar-row"><span>Grassi</span><div class="bar"><div class="bar-fill fat" id="barFat" style="width:30%"></div></div></div>
+          <div class="macro-chart" id="macroChart" style="display:none">
+            <div class="chart-circle" id="macroChartCircle"></div>
+            <div class="chart-legend">
+              <div class="legend-item legend-carbs"><span class="legend-color"></span>Carboidrati<strong id="legendCarbsValue">45%</strong></div>
+              <div class="legend-item legend-protein"><span class="legend-color"></span>Proteine<strong id="legendProteinValue">25%</strong></div>
+              <div class="legend-item legend-fat"><span class="legend-color"></span>Grassi<strong id="legendFatValue">30%</strong></div>
+            </div>
           </div>
         </div>
         <div class="card">
@@ -689,13 +668,14 @@
   <script>
     const calculateBtn = document.getElementById('calculateBtn');
     const resultBox = document.getElementById('resultBox');
-    const barsBox = document.getElementById('barsBox');
     const tdeeValue = document.getElementById('tdeeValue');
     const goalText = document.getElementById('goalText');
     const netCalories = document.getElementById('netCalories');
-    const barCarbs = document.getElementById('barCarbs');
-    const barProtein = document.getElementById('barProtein');
-    const barFat = document.getElementById('barFat');
+    const macroChart = document.getElementById('macroChart');
+    const macroChartCircle = document.getElementById('macroChartCircle');
+    const legendCarbsValue = document.getElementById('legendCarbsValue');
+    const legendProteinValue = document.getElementById('legendProteinValue');
+    const legendFatValue = document.getElementById('legendFatValue');
 
     function calcolaMB(gender, weight, height, age) {
       if (gender === 'male') {
@@ -708,13 +688,29 @@
       return Math.round(num);
     }
 
-    function updateMacros(calories) {
-      const carbsPct = 45;
-      const proteinPct = 25;
-      const fatPct = 30;
-      barCarbs.style.width = carbsPct + '%';
-      barProtein.style.width = proteinPct + '%';
-      barFat.style.width = fatPct + '%';
+    function updateMacros(calories, goal) {
+      let carbsPct = 45;
+      let proteinPct = 25;
+      let fatPct = 30;
+
+      if (goal === 'deficit') {
+        carbsPct = 40;
+        proteinPct = 30;
+        fatPct = 30;
+      }
+      if (goal === 'surplus') {
+        carbsPct = 50;
+        proteinPct = 25;
+        fatPct = 25;
+      }
+
+      const chartBackground = `conic-gradient(#7fa697 0 ${carbsPct}%, #c48b62 ${carbsPct} ${carbsPct + proteinPct}%, #8e826e ${carbsPct + proteinPct} 100%)`;
+      if (macroChartCircle) macroChartCircle.style.background = chartBackground;
+      if (legendCarbsValue) legendCarbsValue.textContent = carbsPct + '%';
+      if (legendProteinValue) legendProteinValue.textContent = proteinPct + '%';
+      if (legendFatValue) legendFatValue.textContent = fatPct + '%';
+
+      if (macroChart) macroChart.style.display = 'grid';
     }
 
     calculateBtn.addEventListener('click', () => {
@@ -744,9 +740,9 @@
       tdeeValue.textContent = formatNumber(target) + ' kcal';
       goalText.textContent = label;
       netCalories.textContent = formatNumber(mb) + ' kcal';
-      updateMacros(target);
+      updateMacros(target, goal);
       resultBox.style.display = 'grid';
-      barsBox.style.display = 'grid';
+      if (macroChart) macroChart.style.display = 'grid';
     });
   </script>
 </body>
